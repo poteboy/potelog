@@ -1,0 +1,12 @@
+:root {
+  --max-width: 760px;
+}
+
+body {
+  margin: 0px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  max-width: var(--max-width);
+  margin: auto;
+  color: #1f2937;
+}

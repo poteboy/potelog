@@ -1,12 +1,13 @@
 {
-    // https://v3.nuxtjs.org/concepts/typescript
-    "extends": "./.nuxt/tsconfig.json",
-    "compilerOptions": {
-        "jsx": "preserve",
-        "baseUrl": "./",
-        "paths": {
-            "@src/*": ["./src/*"]
-        }
-    },
-    "include": ["**/*.ts", "**/*.vue"]
+  // https://v3.nuxtjs.org/concepts/typescript
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@core": ["./src/components/core/index.ts"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.vue", "src/style/core/Text/Text.tsx"]
 }
