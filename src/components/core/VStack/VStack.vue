@@ -1,5 +1,5 @@
 <template>
-  <hstack class="h-stack">
+  <hstack class="v-stack">
     <slot />
   </hstack>
 </template>
@@ -31,9 +31,9 @@ const hstack = () => {
 </script>
 
 <style scoped>
-.h-stack {
+.v-stack {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: v-bind(gap);
 }
 </style>
