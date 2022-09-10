@@ -5,5 +5,5 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Header } from '@components';
+import { Header } from '@src/components';
 </script>

@@ -5,8 +5,7 @@
         "jsx": "preserve",
         "baseUrl": "./",
         "paths": {
-            "@components": ["./components/index.ts"],
-            "@components/*": ["./components/*"]
+            "@src/*": ["./src/*"]
         }
     },
     "include": ["**/*.ts", "**/*.vue"]

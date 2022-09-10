@@ -5,11 +5,12 @@ import path from 'path';
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
     plugins: [],
+    srcDir: 'src/',
     vite: {
         plugins: [vueJsx()],
         resolve: {
             alias: {
-                '@components/': `${__dirname}/components/`,
+                '@src/': `${__dirname}/src/`,
             },
         },
     },
