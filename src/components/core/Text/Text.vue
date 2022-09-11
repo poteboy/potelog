@@ -33,7 +33,8 @@ const typograpy = () => {
 };
 const textRef = ref<HTMLAnchorElement>();
 onMounted(() => {
-  if (as === 'a' && !!textRef.value) {
+  if (!textRef.value) return;
+  if (as === 'a') {
     textRef.value.href = href ?? '';
     textRef.value.style.textDecoration = 'none';
   }

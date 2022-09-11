@@ -1,16 +1,19 @@
 <template>
   <header>
     <VStack :space="6">
-      <HStack justify="between" align="center">
+      <HStack justify="between" :align="'center'">
         <RouterLink :to="'/'" class="title">
           <Heading>potelog</Heading>
         </RouterLink>
 
-        <Text as="a" :size="30" href="https://poteboy.com/">👋</Text>
+        <Text as="button" :size="30">👋</Text>
       </HStack>
       <HStack :space="10">
         <img :src="poteboy" />
-        <Text>Personal blog by poteboy</Text>
+        <VStack :space="6" justify="center">
+          <Text>Personal blog by poteboy</Text>
+          <Text>お気持ち表明学級会</Text>
+        </VStack>
       </HStack>
     </VStack>
   </header>

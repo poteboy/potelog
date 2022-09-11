@@ -22,7 +22,7 @@ const { as, space, justify, align } = withDefaults(
   defineProps<{
     as?: HTMLTag;
     space?: number;
-    justify: Justify;
+    justify?: Justify;
     align?: Align;
   }>(),
   {

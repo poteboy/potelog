@@ -9,6 +9,7 @@ export const htmlTags = {
   li: 'li',
   ul: 'ul',
   section: 'section',
+  button: 'button',
 } as const;
 
 export const headingTags = {
