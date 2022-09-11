@@ -1,9 +1,11 @@
 <template>
   <header>
-    <HStack>
+    <HStack justify="between" align="center">
       <RouterLink :to="'/'" class="title">
         <Heading>poteboy.dev</Heading>
       </RouterLink>
+
+      <Text>hello</Text>
     </HStack>
   </header>
 </template>

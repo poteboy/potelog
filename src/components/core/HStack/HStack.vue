@@ -6,16 +6,29 @@
 
 <script setup lang="ts">
 import { render, h, useSlots, computed, ComputedRef, withDefaults } from 'vue';
-import { HTMLTag, Length } from '../utils';
+import {
+  HTMLTag,
+  Length,
+  Justify,
+  JustifyContent,
+  justifyContent as _justifyContent,
+  Align,
+  AlignItems,
+  alignItems as _alignItems,
+} from '../utils';
 const slot = useSlots();
 
-const { as, space } = withDefaults(
+const { as, space, justify, align } = withDefaults(
   defineProps<{
     as?: HTMLTag;
     space?: number;
+    justify?: Justify;
+    align?: Align;
   }>(),
   {
     as: 'div',
+    justify: 'normal',
+    align: 'normal',
   }
 );
 
@@ -23,6 +36,12 @@ const tag: ComputedRef<HTMLTag> = computed(() => as ?? 'div');
 const gap: ComputedRef<Length> = computed(() => {
   const length: Length = space ? `${space}px` : `${0}px`;
   return length;
+});
+const justifyContent: ComputedRef<JustifyContent> = computed(() => {
+  return _justifyContent[justify];
+});
+const alignItems: ComputedRef<AlignItems> = computed(() => {
+  return _alignItems[align];
 });
 
 const hstack = () => {
@@ -35,5 +54,7 @@ const hstack = () => {
   display: flex;
   flex-direction: row;
   gap: v-bind(gap);
+  justify-content: v-bind(justifyContent);
+  align-items: v-bind(align);
 }
 </style>

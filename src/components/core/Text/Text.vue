@@ -11,7 +11,7 @@ import { colors } from '@src/style';
 const { as, size } = withDefaults(
   defineProps<{
     as?: HTMLTag;
-    size: number;
+    size?: number;
   }>(),
   {
     as: htmlTags.div,
