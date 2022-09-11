@@ -1,29 +1,17 @@
 <template>
   <VStack>
-    <HStack
-      :space="10"
-      as="aside"
-    >
+    <HStack :space="10" as="aside">
       <Image
         :src="poteboy"
-        alt="hello"
+        alt="poteboy"
         :width="56"
         :height="56"
         :border-radius="'50%'"
       />
-      <VStack
-        :space="6"
-        justify="center"
-      >
+      <VStack :space="6" justify="center">
         <Text>
           Personal blog by
-          <Text
-            as="a"
-            class="myname"
-            :href="links.myTwitter"
-          >
-            poteboy
-          </Text>
+          <Text as="a" class="myname" :href="links.myTwitter"> poteboy </Text>
         </Text>
         <Text>お気持ち表明学級会</Text>
       </VStack>
