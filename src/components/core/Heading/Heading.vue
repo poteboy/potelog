@@ -15,7 +15,7 @@ const { as, size } = withDefaults(
   }>(),
   {
     as: headingTags.h1,
-    size: 28,
+    size: 30,
   }
 );
 const slot = useSlots();

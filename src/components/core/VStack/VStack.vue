@@ -29,12 +29,13 @@ const { as, space, justify, align } = withDefaults(
     as: 'div',
     justify: 'normal',
     align: 'normal',
+    space: 0,
   }
 );
 
 const tag: ComputedRef<HTMLTag> = computed(() => as ?? 'div');
 const gap: ComputedRef<Length> = computed(() => {
-  const length: Length = space ? `${space}px` : `${0}px`;
+  const length: Length = `${space}px`;
   return length;
 });
 const justifyContent: ComputedRef<JustifyContent> = computed(() => {
