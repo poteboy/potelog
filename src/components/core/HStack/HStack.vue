@@ -18,7 +18,7 @@ import {
 } from '../utils';
 const slot = useSlots();
 
-const { as, space, justify, align } = withDefaults(
+const props = withDefaults(
   defineProps<{
     as?: HTMLTag;
     space?: number;
@@ -32,16 +32,16 @@ const { as, space, justify, align } = withDefaults(
   }
 );
 
-const tag: ComputedRef<HTMLTag> = computed(() => as ?? 'div');
+const tag: ComputedRef<HTMLTag> = computed(() => props.as ?? 'div');
 const gap: ComputedRef<Length> = computed(() => {
-  const length: Length = space ? `${space}px` : `${0}px`;
+  const length: Length = props.space ? `${props.space}px` : `${0}px`;
   return length;
 });
 const justifyContent: ComputedRef<JustifyContent> = computed(() => {
-  return _justifyContent[justify];
+  return _justifyContent[props.justify];
 });
 const alignItems: ComputedRef<AlignItems> = computed(() => {
-  return _alignItems[align];
+  return _alignItems[props.align];
 });
 
 const hstack = () => {

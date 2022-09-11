@@ -10,6 +10,7 @@ export const htmlTags = {
   ul: 'ul',
   section: 'section',
   button: 'button',
+  aside: 'aside',
 } as const;
 
 export const headingTags = {

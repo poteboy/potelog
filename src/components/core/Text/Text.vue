@@ -1,5 +1,8 @@
 <template>
-  <typograpy class="text" ref="textRef">
+  <typograpy
+    ref="textRef"
+    class="text"
+  >
     <slot />
   </typograpy>
 </template>
@@ -16,34 +19,36 @@ import {
 } from 'vue';
 import { HTMLTag, htmlTags, Length } from '../utils';
 import { colors } from '@src/style';
-const { as, size, href } = withDefaults(
+const props = withDefaults(
   defineProps<{
     as?: HTMLTag;
-    size?: number;
+    size?: number | Length;
     href?: string;
   }>(),
   {
     as: htmlTags.p,
     size: 16,
+    href: '',
   }
 );
 const slot = useSlots();
 const typograpy = () => {
-  return h(as, {}, slot);
+  return h(props.as, {}, slot);
 };
 const textRef = ref<HTMLAnchorElement>();
 onMounted(() => {
   if (!textRef.value) return;
-  if (as === 'a') {
-    textRef.value.href = href ?? '';
-    textRef.value.style.textDecoration = 'none';
+  if (props.as === 'a') {
+    textRef.value.href = props.href;
+    textRef.value.target = '_blank';
   }
 });
 
 const fontColor = computed(() => colors.Gray[800]);
 
 const fontSize: ComputedRef<Length> = computed(() => {
-  const length: Length = `${size}px`;
+  if (typeof props.size !== 'number') return props.size;
+  const length: Length = `${props.size}px`;
   return length;
 });
 </script>
@@ -54,5 +59,6 @@ const fontSize: ComputedRef<Length> = computed(() => {
     'Liberation Mono', 'Courier New', monospace;
   color: v-bind(fontColor);
   font-size: v-bind(fontSize);
+  text-decoration: none;
 }
 </style>

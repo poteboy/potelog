@@ -8,7 +8,7 @@
 import { h, useSlots, computed, ComputedRef, withDefaults } from 'vue';
 import { HeadingTag, headingTags, Length } from '../utils';
 import { colors } from '@src/style';
-const { as, size } = withDefaults(
+const props = withDefaults(
   defineProps<{
     as?: HeadingTag;
     size?: number;
@@ -20,13 +20,13 @@ const { as, size } = withDefaults(
 );
 const slot = useSlots();
 const heading = () => {
-  return h(as, {}, slot);
+  return h(props.as, {}, slot);
 };
 
 const fontColor = computed(() => colors.Gray[800]);
 
 const fontSize: ComputedRef<Length> = computed(() => {
-  const length: Length = `${size}px`;
+  const length: Length = `${props.size}px`;
   return length;
 });
 </script>
