@@ -1,6 +1,6 @@
 <template>
-  <RouterLink :to="''" ref="cardRef">
-    <VStack :space="3" as="article">
+  <RouterLink :to="''">
+    <VStack :space="3" as="article" ref="hoverRef">
       <Heading size="1.75rem" :color="titleColor" class="title"
         >これはテスト投稿です</Heading
       >
@@ -15,26 +15,20 @@ import { ref, watch, computed } from 'vue';
 import { VStack, Heading, Text, Spacer } from '@core';
 import * as dayjs from 'dayjs';
 import { semanticColors, colors } from '@src/style';
-import { useHoverd } from '@src/composable';
+import { useHover } from '@src/composable';
 
 const day = dayjs().format('MMM D, YYYY');
 
 const hoverdColor = ref(colors.Pink[800]);
 
-const cardRef = ref<HTMLElement>();
+const { hoverRef, isHoverd } = useHover();
 
 const titleColor = computed(() => {
   // const { isHoverd } = useHoverd(cardRef);
   // const darkness = isHoverd.value ? 800 : 700;
   // return colors.Pink[darkness];
 
-  console.log(cardRef.value);
-
   return colors.Pink[700];
-});
-
-watch(cardRef, () => {
-  console.log(cardRef.value);
 });
 </script>
 

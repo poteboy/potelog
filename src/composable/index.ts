@@ -1,1 +1,1 @@
-export * from './isHoverd';
+export * from './useHover';
