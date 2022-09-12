@@ -15,4 +15,13 @@ export default defineNuxtConfig({
       },
     },
   },
+  vue: {
+    config: {
+      silent: true,
+    },
+  },
+  router: {
+    mode: 'history',
+  },
+  ssr: false,
 });

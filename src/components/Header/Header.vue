@@ -1,22 +1,12 @@
 <template>
   <header>
-    <HStack
-      justify="between"
-      :align="'center'"
-    >
-      <RouterLink
-        :to="'/'"
-        class="title"
-      >
+    <HStack justify="between" :align="'center'">
+      <RouterLink :to="'/'" class="title">
         <Heading>potelog</Heading>
       </RouterLink>
-
-      <Text
-        as="button"
-        :size="30"
-      >
-        👋
-      </Text>
+      <RouterLink :to="'/about'">
+        <Text :size="30"> 👋 </Text>
+      </RouterLink>
     </HStack>
   </header>
 </template>

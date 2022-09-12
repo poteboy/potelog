@@ -17,7 +17,7 @@
       </VStack>
     </HStack>
     <HStack>
-      <Text />
+      <!-- <Text>Twitter</Text> -->
     </HStack>
   </VStack>
 </template>
