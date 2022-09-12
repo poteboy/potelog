@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { h, useSlots, computed, ComputedRef, withDefaults } from 'vue';
+import { h, useSlots, computed, ComputedRef, withDefaults, Ref } from 'vue';
 import {
   HTMLTag,
   Length,
@@ -21,7 +21,7 @@ const slot = useSlots();
 const props = withDefaults(
   defineProps<{
     as?: HTMLTag;
-    space?: number;
+    space?: number | Length;
     justify?: Justify;
     align?: Align;
   }>(),
@@ -35,6 +35,7 @@ const props = withDefaults(
 
 const tag: ComputedRef<HTMLTag> = computed(() => props.as ?? 'div');
 const gap: ComputedRef<Length> = computed(() => {
+  if (typeof props.space !== 'number') return props.space;
   const length: Length = `${props.space}px`;
   return length;
 });

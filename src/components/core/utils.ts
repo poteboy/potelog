@@ -11,6 +11,7 @@ export const htmlTags = {
   section: 'section',
   button: 'button',
   aside: 'aside',
+  article: 'article',
 } as const;
 
 export const headingTags = {

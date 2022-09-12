@@ -27,6 +27,8 @@ export const colors = {
   },
   Pink: {
     600: '#db2777',
+    700: '#be185d',
+    800: '#9d174d',
   },
 };
 
@@ -35,4 +37,5 @@ export const semanticColors = {
   main: colors.Indigo[500],
   faint: colors.Violet[100],
   link: colors.Pink[600],
+  title: colors.Pink[700],
 };
