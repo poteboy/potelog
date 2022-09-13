@@ -1,23 +1,28 @@
-import { ref, onMounted, Ref, onUnmounted, watch } from 'vue';
+import { ref, onMounted, onUnmounted, Ref } from 'vue';
 
-export const useHover = () => {
-  const hoverRef = ref<HTMLElement>(null);
-  const isHoverd = ref(false);
+export function useHover(elRef: Ref<null | HTMLElement>) {
+  const isHovered = ref(false);
 
-  const handleMouseOver = () => {
-    console.log('hello');
-    return (isHoverd.value = true);
+  const mouseEnterHandler = () => {
+    isHovered.value = true;
   };
-  const handleMouseOut = () => (isHoverd.value = false);
 
-  onMounted(() => {});
+  const mouseLeaveHandler = () => {
+    isHovered.value = false;
+  };
 
-  watch(hoverRef, (curr, prev, cleanUp) => {
-    if (curr === null) return;
-    console.log(curr);
-    // curr.addEventListener('mouseover', handleMouseOver);
-    // curr.addEventListener('mouseout', handleMouseOut);
+  onMounted(() => {
+    console.log(elRef.value);
+    if (!elRef.value) return;
+    elRef.value.addEventListener('mouseenter', mouseEnterHandler);
+    elRef.value.addEventListener('mouseleave', mouseLeaveHandler);
   });
 
-  return { isHoverd, hoverRef };
-};
+  onUnmounted(() => {
+    if (!elRef.value) return;
+    elRef.value.removeEventListener('mouseenter', mouseEnterHandler);
+    elRef.value.removeEventListener('mouseleave', mouseLeaveHandler);
+  });
+
+  return { isHovered };
+}

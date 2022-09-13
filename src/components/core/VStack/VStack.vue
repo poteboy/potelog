@@ -1,11 +1,19 @@
 <template>
-  <hstack class="v-stack">
+  <vstack class="v-stack">
     <slot />
-  </hstack>
+  </vstack>
 </template>
 
 <script setup lang="ts">
-import { h, useSlots, computed, ComputedRef, withDefaults, Ref } from 'vue';
+import {
+  h,
+  useSlots,
+  computed,
+  ComputedRef,
+  withDefaults,
+  Ref,
+  useAttrs,
+} from 'vue';
 import {
   HTMLTag,
   Length,
@@ -46,8 +54,8 @@ const alignItems: ComputedRef<AlignItems> = computed(() => {
   return _alignItems[props.align];
 });
 
-const hstack = () => {
-  return h(tag.value, {}, slot);
+const vstack = () => {
+  return h(tag.value, props, slot);
 };
 </script>
 

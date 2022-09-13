@@ -21,7 +21,7 @@ const titleColor = ref(colors.Gray[800]);
 
 <style scoped>
 header {
-  margin-top: 20px;
+  margin-top: 1.875rem;
 }
 
 .title {

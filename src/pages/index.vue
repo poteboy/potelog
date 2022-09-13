@@ -11,7 +11,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { Spacer, VStack } from '@core';
 import { Header, ProfileBar, PostCard } from '@src/components';
+import { onBeforeRouteLeave } from 'vue-router';
 </script>
