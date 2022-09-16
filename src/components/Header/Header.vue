@@ -1,22 +1,41 @@
 <template>
   <header>
-    <HStack justify="between" :align="'center'">
-      <RouterLink :to="'/'" class="title">
-        <Heading>potelog</Heading>
+    <HStack
+      justify="between"
+      :align="'center'"
+    >
+      <RouterLink
+        :to="'/'"
+        class="title"
+      >
+        <Heading
+          as="div"
+          :color="titleColor"
+        >
+          potelog
+        </Heading>
       </RouterLink>
       <RouterLink :to="'/about'">
-        <Text :size="30"> 👋 </Text>
+        <Text :size="30">
+          👋
+        </Text>
       </RouterLink>
     </HStack>
   </header>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed} from 'vue';
+import { useRoute } from 'vue-router'
 import { HStack, Text, Heading, VStack } from '@core';
-import { colors } from '@src/style';
+import { colors, semanticColors } from '@src/style';
 
-const titleColor = ref(colors.Gray[800]);
+
+const route = useRoute()
+
+const titleColor = computed(() => {
+  return route.fullPath === '/' ? colors.Gray[800] : 'rgb(255, 167, 196)'
+})
 </script>
 
 <style scoped>

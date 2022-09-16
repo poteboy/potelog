@@ -1,6 +1,9 @@
 <template>
   <VStack :space="16">
-    <HStack :space="10" as="aside">
+    <HStack
+      :space="10"
+      as="aside"
+    >
       <Image
         :src="poteboy"
         alt="poteboy"
@@ -8,23 +11,37 @@
         :height="56"
         :border-radius="'50%'"
       />
-      <VStack :space="6" justify="center">
+      <VStack
+        :space="6"
+        justify="center"
+      >
         <Text>
           Personal blog by
-          <Text as="a" class="myname" :href="links.myTwitter"> poteboy </Text>
+          <Text
+            as="a"
+            class="myname"
+            :href="links.myTwitter"
+          >
+            poteboy
+          </Text>
         </Text>
-        <Text>お気持ち表明学級会</Text>
+        <Text font="verdana">
+          お気持ち表明学級会
+        </Text>
       </VStack>
     </HStack>
     <HStack :space="12">
       <Text
+        v-for="site of sites"
+        :key="site.name"
         as="a"
         size="14px"
         :href="site.link"
         :color="semanticColors.link"
-        v-for="site of sites"
-        >{{ site.name }}</Text
+        font="monospace"
       >
+        {{ site.name }}
+      </Text>
     </HStack>
   </VStack>
 </template>

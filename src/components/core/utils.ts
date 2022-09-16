@@ -20,6 +20,7 @@ export const headingTags = {
   h2: 'h2',
   h3: 'h3',
   h4: 'h4',
+  div: 'div'
 } as const;
 
 export type HeadingTag = keyof typeof headingTags;
@@ -48,3 +49,10 @@ export const alignItems = {
 
 export type Align = keyof typeof alignItems;
 export type AlignItems = typeof alignItems[Align];
+
+
+export const fontFamilies = {
+  monospace: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+  verdana: "Verdana, Geneva, Tahoma, sans-serif",
+  wotfard: "'Wotfard',Futura,-apple-system,sans-serif"
+}

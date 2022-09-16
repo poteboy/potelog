@@ -1,5 +1,8 @@
 <template>
-  <typograpy ref="textRef" class="text">
+  <typograpy
+    ref="textRef"
+    class="text"
+  >
     <slot />
   </typograpy>
 </template>
@@ -14,7 +17,7 @@ import {
   onMounted,
   ref,
 } from 'vue';
-import { HTMLTag, htmlTags, Length } from '../utils';
+import { fontFamilies, HTMLTag, htmlTags, Length } from '../utils';
 import { colors } from '@src/style';
 const props = withDefaults(
   defineProps<{
@@ -22,12 +25,14 @@ const props = withDefaults(
     size?: number | Length;
     href?: string;
     color?: string;
+    font?: 'monospace' | 'verdana' | 'wotfard'
   }>(),
   {
     as: htmlTags.p,
-    size: 16,
+    size: '1rem' as Length,
     href: '',
     color: colors.Gray[800],
+    font: 'verdana'
   }
 );
 const slot = useSlots();
@@ -50,12 +55,16 @@ const fontSize: ComputedRef<Length> = computed(() => {
   const length: Length = `${props.size}px`;
   return length;
 });
+
+const fontFamily = ref(
+  props.font === 'monospace' ? fontFamilies.monospace : props.font === 'verdana' ? fontFamilies.verdana : fontFamilies.wotfard
+)
+
 </script>
 
 <style scoped>
 .text {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+  font-family: v-bind(fontFamily);
   color: v-bind(fontColor);
   font-size: v-bind(fontSize);
   text-decoration: none;

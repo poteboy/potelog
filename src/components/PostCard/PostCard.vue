@@ -1,15 +1,32 @@
 <template>
-  <VStack :space="3" as="article" ref="cardRef">
+  <VStack
+    ref="cardRef"
+    :space="3"
+    as="article"
+  >
     <RouterLink :to="''">
-      <Heading size="1.75rem" :color="semanticColors.title" class="title">{{
-        title
-      }}</Heading>
+      <Heading
+        size="1.75rem"
+        :color="semanticColors.title"
+        class="title"
+      >
+        {{ title }}
+      </Heading>
     </RouterLink>
-    <HStack :align="'center'" :space="15">
-      <Text :size="32">{{ emoji }}</Text>
+    <HStack
+      :align="'center'"
+      :space="15"
+    >
+      <Text :size="32">
+        {{ emoji }}
+      </Text>
       <VStack>
-        <Text :size="14">{{ date }}</Text>
-        <Text>{{ desc }}</Text>
+        <Text :size="14">
+          {{ date }}
+        </Text>
+        <Text font="monospace">
+          {{ desc }}
+        </Text>
       </VStack>
     </HStack>
   </VStack>

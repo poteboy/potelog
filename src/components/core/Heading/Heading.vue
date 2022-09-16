@@ -16,7 +16,7 @@ const props = withDefaults(
   }>(),
   {
     as: headingTags.h1,
-    size: 30,
+    size: '2rem' as Length,
     color: colors.Gray[900],
   }
 );
@@ -36,8 +36,7 @@ const fontSize: ComputedRef<Length> = computed(() => {
 
 <style scoped>
 .heading {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+  font-family: "Wotfard",Futura,-apple-system,sans-serif;
   color: v-bind(fontColor);
   font-size: v-bind(fontSize);
   font-weight: 700;

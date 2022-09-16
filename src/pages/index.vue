@@ -4,8 +4,14 @@
     <Spacer :size="'2rem'" />
     <ProfileBar />
     <Spacer :size="50" />
-    <VStack space="3rem" as="main">
-      <PostCard v-for="card of [1, 2, 3]" />
+    <VStack
+      space="3rem"
+      as="main"
+    >
+      <PostCard
+        v-for="card of [1, 2, 3]"
+        :key="card"
+      />
     </VStack>
   </div>
 </template>
