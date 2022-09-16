@@ -1,8 +1,5 @@
 <template>
-  <typograpy
-    ref="textRef"
-    class="text"
-  >
+  <typograpy ref="textRef" class="text">
     <slot />
   </typograpy>
 </template>
@@ -24,11 +21,13 @@ const props = withDefaults(
     as?: HTMLTag;
     size?: number | Length;
     href?: string;
+    color?: string;
   }>(),
   {
     as: htmlTags.p,
     size: 16,
     href: '',
+    color: colors.Gray[800],
   }
 );
 const slot = useSlots();
@@ -44,7 +43,7 @@ onMounted(() => {
   }
 });
 
-const fontColor = computed(() => colors.Gray[800]);
+const fontColor = ref(props.color);
 
 const fontSize: ComputedRef<Length> = computed(() => {
   if (typeof props.size !== 'number') return props.size;

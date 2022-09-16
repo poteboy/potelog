@@ -7,7 +7,10 @@
     "paths": {
       "@src/*": ["./src/*"],
       "@core": ["./src/components/core/index.ts"]
-    }
+    },
+    "resolveJsonModule": true,
+    "noImplicitAny": false
   },
-  "include": ["**/*.ts", "**/*.vue", "src/style/core/Text/Text.tsx"]
+  "include": ["**/*.ts", "**/*.vue", "src/style/core/Text/Text.tsx"],
+  "exclude": ["node_modules"]
 }
