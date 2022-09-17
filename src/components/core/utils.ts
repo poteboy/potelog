@@ -56,3 +56,5 @@ export const fontFamilies = {
   verdana: "Verdana, Geneva, Tahoma, sans-serif",
   wotfard: "'Wotfard',Futura,-apple-system,sans-serif"
 }
+
+export default {}

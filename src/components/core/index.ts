@@ -4,3 +4,5 @@ export { default as Text } from './Text/Text.vue';
 export { default as Heading } from './Heading/Heading.vue';
 export { default as Image } from './Image/Image.vue';
 export { default as Spacer } from './Spacer/Spacer.vue';
+
+export default {}
