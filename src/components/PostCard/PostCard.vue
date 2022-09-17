@@ -37,7 +37,6 @@ import { ref, watch, computed, withDefaults } from 'vue';
 import { VStack, Heading, Text, Spacer, HStack } from '@core';
 import dayjs from 'dayjs';
 import { semanticColors, colors } from '@src/style';
-import { useHover } from '@src/composable';
 
 const props = withDefaults(
   defineProps<{

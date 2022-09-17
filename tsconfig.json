@@ -10,7 +10,11 @@
       "#imports": [
         ".nuxt/imports"
       ],
+      "#components": [
+        ".nuxt/components"
+      ],
     },
+    "types": ["jest", "@types/jest"],
     "resolveJsonModule": true,
     "noImplicitAny": false,
     "esModuleInterop": true,

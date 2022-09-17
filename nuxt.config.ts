@@ -6,6 +6,11 @@ import path from 'path';
 export default defineNuxtConfig({
   srcDir: 'src/',
   modules: ['@nuxt/content'],
+  content: {
+    documentDriven: {
+      page: true,
+    }
+  },
   css: ['@src/style/global.css'],
   vite: {
     plugins: [vueJsx()],
