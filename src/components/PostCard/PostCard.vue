@@ -4,7 +4,7 @@
     :space="3"
     as="article"
   >
-    <a @click="navigate">
+    <RouterLink :to="props.path">
       <Heading
         :size="titleSize"
         :color="semanticColors.title"
@@ -12,7 +12,7 @@
       >
         {{ title }}
       </Heading>
-    </a>
+    </RouterLink>
     <HStack
       :align="'center'"
       :space="15"
@@ -70,7 +70,6 @@ const titleSize = computed(() => {
   return isMobile.value ? '1.5rem' : '1.75rem'
 })
 const router = useRouter()
-const navigate = () => router.push(props.path)
 
 </script>
 
