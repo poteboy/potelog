@@ -4,6 +4,16 @@ declare module '*.jpeg' {
 }
 
 declare module '*.jpg' {
-  const jpeg: any;
-  export default jpeg;
+  const jpg: any;
+  export default jpg;
+}
+
+declare module '*.webp' {
+  const webp: any;
+  export default webp;
+}
+
+declare module '*.png' {
+  const png: any;
+  export default png;
 }

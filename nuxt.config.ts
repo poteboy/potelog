@@ -35,4 +35,13 @@ export default defineNuxtConfig({
       '/post/*': { swr: true },
     }
   },
+  // meta: {
+  //   title: 'potelog | ぽてろぐ',
+  //   meta: [
+  //     {
+  //       name: 'og:description',
+  //       content: 'poteboyのお気持ち表明ブログ。技術の話から日常の話までなんでも書きます。'
+  //     },
+  //   ]
+  // }
 });

@@ -4,15 +4,15 @@
     :space="3"
     as="article"
   >
-    <RouterLink :to="''">
+    <a @click="navigate">
       <Heading
-        size="1.75rem"
+        :size="titleSize"
         :color="semanticColors.title"
         class="title"
       >
         {{ title }}
       </Heading>
-    </RouterLink>
+    </a>
     <HStack
       :align="'center'"
       :space="15"
@@ -37,6 +37,8 @@ import { ref, watch, computed, withDefaults } from 'vue';
 import { VStack, Heading, Text, Spacer, HStack } from '@core';
 import dayjs from 'dayjs';
 import { semanticColors, colors } from '@src/style';
+import { useWindowSize } from '@src/composable';
+import { useRouter } from 'vue-router';
 
 const props = withDefaults(
   defineProps<{
@@ -44,22 +46,32 @@ const props = withDefaults(
     emoji?: string;
     date?: Date | string;
     desc?: string;
+    path?: string
   }>(),
   {
     title: 'これはテスト投稿です',
     emoji: '🪐',
     date: dayjs().format('MMM D, YYYY'),
     desc: 'this is just a test post do not take this seriously',
+    path: "/post/test"
   }
 );
 
 const title = ref(props.title);
 const emoji = ref(props.emoji);
-const date = ref(props.date);
+const date = ref(dayjs(props.date).format('MMM D, YYYY'));
 const desc = ref(props.desc);
 
 const hoverdColor = ref(colors.Pink[800]);
 const cardRef = ref();
+
+const {isMobile} = useWindowSize()
+const titleSize = computed(() => {
+  return isMobile.value ? '1.5rem' : '1.75rem'
+})
+const router = useRouter()
+const navigate = () => router.push(props.path)
+
 </script>
 
 <style scoped>

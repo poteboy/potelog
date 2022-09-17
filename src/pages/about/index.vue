@@ -14,7 +14,7 @@
         自己紹介
       </Heading>
       <Text font="verdana">
-        こんにちわ、poteboyと申します
+        こんにちわ、poteboyです
       </Text>
       <Text>
         つい先日、自己紹介の場で<strong>自身の価値観に影響を与えた出来事トップ３</strong>を聞かれました。
@@ -66,7 +66,7 @@
         2位 仕事でソフトウェア開発を始めたこと
       </Heading>
       <Image
-        :src="Eauation"
+        :src="devCamp"
         alt="何かの方程式"
         :width="250"
         :height="250"
@@ -101,11 +101,13 @@
 </template>
 
 <script setup lang="ts">
+  import { ref } from 'vue';
 import { Header } from '@src/components';
 import { VStack, Spacer, Text, Heading, Image } from '@core';
 import Atkins from './atkins.jpg'
-import Eauation from './equation.jpg'
-
+import devCamp from './devCamp.webp'
+import { useMeta, useHead } from '#imports';
+import {meta} from '@src/constants'
 
 </script>
 
@@ -117,6 +119,7 @@ import Eauation from './equation.jpg'
 }
 
 .img {
-  margin: 0 auto
+  margin: 0 auto;
+  object-fit: cover;
 }
 </style>

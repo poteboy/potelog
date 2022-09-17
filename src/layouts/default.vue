@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <slot />
-  </div>
+  <NuxtLayout />
 </template>
 
 <script setup lang="ts">
 import Icon from '@src/assets/poteboy.jpeg';
 import { useHead } from '#imports';
-
-const description =
-  'poteboyのお気持ち表明ブログ。技術の話から日常の話までなんでも書きます。';
+import { NuxtLayout } from '#components'
+import { meta } from '@src/constants'
+import OGP from '@src/assets/ogp.png'
 
 useHead({
-  title: 'potelog | ぽてろぐ',
-  description: description,
+  title: 'aa',
+  description: meta.description,
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
   link: [
     {
@@ -22,5 +20,8 @@ useHead({
       href: Icon,
     },
   ],
+  meta: [
+    { hid: 'og:image', property: 'og:image', content: OGP }
+  ]
 });
 </script>
