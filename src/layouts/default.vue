@@ -6,7 +6,7 @@
 import Icon from '@src/assets/poteboy.jpeg';
 import { useHead } from '#imports';
 import { NuxtLayout } from '#components'
-import { meta } from '@src/constants'
+import { meta, links } from '@src/constants'
 import OGP from '@src/assets/ogp.png'
 
 useHead({
@@ -21,7 +21,7 @@ useHead({
     },
   ],
   meta: [
-    { hid: 'og:image', property: 'og:image', content: OGP }
+    { hid: 'og:image', property: 'og:image', content: links.myOGP }
   ]
 });
 </script>

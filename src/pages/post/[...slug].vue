@@ -2,15 +2,21 @@
   <div>
     <Header />
     <Spacer :size="50" />
-    <ContentDoc />
+    <VStack v-if="post">
+      <Heading>
+        {{ post.title }}
+      </Heading>
+      <Spacer :size="20" />
+      <ContentDoc />
+    </VStack>
   </div>
 </template>
 
 <script lang="ts" setup>
 import {ref, Ref, onMounted, watchEffect, onBeforeMount } from 'vue'
 import {useRoute, useRouter } from 'vue-router'
-import { useContentHead, useContent, useMeta, queryContent } from '#imports'
-import { VStack, Spacer } from '@core'
+import { definePageMeta, queryContent, useContentHead } from '#imports'
+import { VStack, Spacer, Heading } from '@core'
 import { Header } from '@src/components'
 import { Post } from '@src/composable'
 import { meta } from '@src/constants'
@@ -19,21 +25,14 @@ import { meta } from '@src/constants'
 const route = useRoute()
 const router = useRouter()
 
-const post: Ref<Post> = useContent().page
-
-// useMeta({
-//   title: `${post.value?.title} | ${meta.title}`
-// })
-
-const q =  queryContent(route.fullPath).findOne()
-
+const post: Ref<Post> = ref()
 
 // 存在しないページの際はリダイレクト
-onBeforeMount(() => {
+onBeforeMount(async () => {
+  post.value = await queryContent<Post>(route.fullPath).findOne()
   if (!post.value) {
     router.push('/')
   }
 })
-
 
 </script>
