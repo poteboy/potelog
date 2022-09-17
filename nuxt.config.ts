@@ -5,7 +5,7 @@ import path from 'path';
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   srcDir: 'src/',
-  modules: ['@nuxt/content'],
+  modules: ['@nuxt/content', '@nuxtjs/robots'],
   content: {
     documentDriven: {
       page: true,
@@ -35,13 +35,8 @@ export default defineNuxtConfig({
       '/post/*': { swr: true },
     }
   },
-  // meta: {
-  //   title: 'potelog | ぽてろぐ',
-  //   meta: [
-  //     {
-  //       name: 'og:description',
-  //       content: 'poteboyのお気持ち表明ブログ。技術の話から日常の話までなんでも書きます。'
-  //     },
-  //   ]
-  // }
+  robots: {
+    UserAgent: '*',
+    Disallow: ''
+  }
 });
