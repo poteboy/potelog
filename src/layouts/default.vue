@@ -21,7 +21,7 @@ useHead({
     },
   ],
   meta: [
-    { hid: 'og:image', property: 'og:image', content: OGP }
+    { hid: 'og:image', property: 'og:image', content: links.myOGP }
   ]
 });
 </script>
