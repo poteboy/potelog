@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import {ref, Ref, onMounted, watchEffect, onBeforeMount } from 'vue'
 import {useRoute, useRouter } from 'vue-router'
-import { definePageMeta, queryContent, useContentHead } from '#imports'
+import { definePageMeta, queryContent, useMeta} from '#imports'
 import { VStack, Spacer, Heading } from '@core'
 import { Header } from '@src/components'
 import { Post } from '@src/composable'
@@ -32,7 +32,18 @@ onBeforeMount(async () => {
   post.value = await queryContent<Post>(route.fullPath).findOne()
   if (!post.value) {
     router.push('/')
+  } else {
+    useMeta({
+      meta: [
+        {
+          property: 'og:title',
+          content: post.value.title
+        }
+      ]
+    })
   }
 })
+
+
 
 </script>

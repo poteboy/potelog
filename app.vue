@@ -24,6 +24,14 @@ useHead({
     { hid: 'og:image',
       property: 'og:image',
       content: links.myOGP
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary_large_image'
+    },
+    {
+      property: 'og:title',
+      content: meta.title
     }
   ]
 });
