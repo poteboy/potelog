@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header :has-color="false" />
     <Spacer :size="'2rem'" />
     <ProfileBar />
     <Spacer :size="50" />

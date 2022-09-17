@@ -25,16 +25,25 @@
 </template>
 
 <script setup lang="ts">
-import { computed} from 'vue';
+import { computed, withDefaults} from 'vue';
 import { useRoute } from 'vue-router'
 import { HStack, Text, Heading, VStack } from '@core';
 import { colors, semanticColors } from '@src/style';
+
+const props = withDefaults(
+  defineProps<{
+    hasColor: boolean
+  }>(),
+  {
+    hasColor: true
+  }
+)
 
 
 const route = useRoute()
 
 const titleColor = computed(() => {
-  return route.fullPath === '/' ? colors.Gray[800] : 'rgb(255, 167, 196)'
+  return !props.hasColor ? colors.Gray[800] : 'rgb(255, 167, 196)'
 })
 </script>
 
