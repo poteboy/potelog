@@ -19,6 +19,6 @@
     "noImplicitAny": false,
     "esModuleInterop": true,
   },
-  "include": ["**/*.ts", "**/*.vue", "src/style/core/Text/Text.tsx"],
+  "include": ["**/*.ts", "**/*.vue"],
   "exclude": ["node_modules"]
 }
