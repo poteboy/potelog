@@ -35,7 +35,7 @@
 <script lang="ts" setup>
 import { ref, watch, computed, withDefaults } from 'vue';
 import { VStack, Heading, Text, Spacer, HStack } from '@core';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 import { semanticColors, colors } from '@src/style';
 import { useHover } from '@src/composable';
 
@@ -44,7 +44,7 @@ const props = withDefaults(
     title?: string;
     emoji?: string;
     date?: Date | string;
-    desc: string;
+    desc?: string;
   }>(),
   {
     title: 'これはテスト投稿です',

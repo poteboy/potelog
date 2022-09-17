@@ -6,10 +6,14 @@
     "baseUrl": "./",
     "paths": {
       "@src/*": ["./src/*"],
-      "@core": ["./src/components/core/index.ts"]
+      "@core": ["./src/components/core/index.ts"],
+      "#imports": [
+        ".nuxt/imports"
+      ],
     },
     "resolveJsonModule": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "esModuleInterop": true,
   },
   "include": ["**/*.ts", "**/*.vue", "src/style/core/Text/Text.tsx"],
   "exclude": ["node_modules"]
