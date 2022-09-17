@@ -23,7 +23,7 @@ useHead({
   meta: [
     { hid: 'og:image',
       property: 'og:image',
-      content: links.myOGP
+      content: OGP
     },
     {
       name: 'twitter:card',
