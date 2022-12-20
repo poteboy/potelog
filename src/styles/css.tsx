@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import { ReactNode, createElement, useEffect, useLayoutEffect } from "react";
+import { HTMLProps, ReactNode, createElement, ComponentProps } from "react";
 import { render } from "react-dom";
 
 let isBrowser = typeof document !== "undefined";
@@ -13,35 +13,39 @@ function interleave(strings: string[], interpolations: string[]) {
 }
 
 let id = 0;
+const cache = new Map<string, number>();
+
 export function css(strings: any, ...interpolations: string[]) {
   const styleString = interleave(strings, interpolations);
-  const className = `css-${id}`;
+  const newId = cache.has(styleString) ? cache.get(styleString) : id;
+  const isCached = cache.has(styleString);
+  const className = `css-${newId}`;
+  cache.set(styleString, id);
   id += 1;
   const rule = `.${className} { ${styleString} }`;
-  return { className, rule };
+  return { className, rule, isCached };
 }
 
+// keyof HTMLElementTagNameMap is too slow
+type HTMLTagName = "div" | "p" | "a" | "section" | "h1" | "h2";
+
 export const styled =
-  <T extends keyof HTMLElementTagNameMap>(element: T) =>
+  <T extends HTMLTagName>(element: T) =>
   // eslint-disable-next-line react/display-name
   (strings: any, ...interpolations: string[]) => {
-    const { className, rule } = css(strings, ...interpolations);
-    return <Props extends unknown>(arg: ComponentArgument<Props>) => {
+    const { className, rule, isCached } = css(strings, ...interpolations);
+    return <Props extends unknown>(arg: ComponentArgument<Props, T>) => {
       const { children, ...props } = arg;
-
-      useEffect(() => {
-        if (isBrowser) {
-          document.createElement("style").sheet?.insertRule(rule);
-        }
-      });
-
       return (
         <>
           {createElement(element, { className, ...props }, children)}
-          {!isBrowser && <style>{rule}</style>}
+          {!isCached && <style>{rule}</style>}
         </>
       );
     };
   };
 
-type ComponentArgument<T> = { children: ReactNode } & T;
+type ComponentArgument<T, E extends keyof JSX.IntrinsicElements> = {
+  children: ReactNode;
+} & T &
+  ComponentProps<E>;
